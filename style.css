@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap');
+
+* {
+    font-family: 'Fira Sans', sans-serif;
+    --textshadow: rgb(21, 21, 21) 3px 0px 0px, rgb(21, 21, 21) 2.83487px 0.981584px 0px, rgb(21, 21, 21) 2.35766px 1.85511px 0px, rgb(21, 21, 21) 1.62091px 2.52441px 0px, rgb(21, 21, 21) 0.705713px 2.91581px 0px, rgb(21, 21, 21) -0.287171px 2.98622px 0px, rgb(21, 21, 21) -1.24844px 2.72789px 0px, rgb(21, 21, 21) -2.07227px 2.16926px 0px, rgb(21, 21, 21) -2.66798px 1.37182px 0px, rgb(21, 21, 21) -2.96998px 0.42336px 0px, rgb(21, 21, 21) -2.94502px -0.571704px 0px, rgb(21, 21, 21) -2.59586px -1.50383px 0px, rgb(21, 21, 21) -1.96093px -2.27041px 0px, rgb(21, 21, 21) -1.11013px -2.78704px 0px, rgb(21, 21, 21) -0.137119px -2.99686px 0px, rgb(21, 21, 21) 0.850987px -2.87677px 0px, rgb(21, 21, 21) 1.74541px -2.43999px 0px, rgb(21, 21, 21) 2.44769px -1.73459px 0px, rgb(21, 21, 21) 2.88051px -0.838247px 0px;
+    --text-color: rgb(236, 235, 235);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    background-image: url("https://c0.wallpaperflare.com/preview/572/961/266/sky-dark-light-clouds.jpg");
+    background-size: cover;
+}
+
+.container {
+    background-color: rgba(21, 21, 21, 0.75);   
+    padding: 30px 15px;
+    border-radius: 8%;
+    color: rgb(255, 255, 255);
+    width: 35%;
+    height: fit-content;
+    font-size: 20px;
+}
+
+.search{
+    text-align: center;
+}
+
+.search-bar{
+    width: 70%;
+    padding:3px 5px; 
+    font-size:16px; 
+    border-color:#cccccc; 
+    border-style:solid; 
+    border-radius:16px; 
+    border-width:0px;
+    background-color: rgba(0, 0, 0, 50%);
+    color: white;
+}
+
+.search-btn{
+    box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border-radius:28px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	padding:7px 17px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+}
+
+.temp{
+    font-size: 36px;
+    margin: -10px 15px 15px 15px;
+    
+}
+
+.icon {
+    display: flex;
+    position: relative;
+}
+
+footer{
+    color: var(--text-color);
+    text-shadow: var(--textshadow);
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px 0 10px 0;
+}
