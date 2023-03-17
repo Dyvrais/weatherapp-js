@@ -111,4 +111,7 @@ footer{
     .search-btn {
       margin-top: 10px;
     }
+    .container {
+        width: 55%;
+    }
   }
