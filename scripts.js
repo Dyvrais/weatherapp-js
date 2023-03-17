@@ -1,16 +1,21 @@
 let searchBar = document.querySelector(".search-bar");
 let searchBtn = document.querySelector(".search-btn");
+let loader = document.querySelector(".loader");
 
 let weather = {
     "ApiKey": "b8f4fcd6996ec075a24ca2c7ad9d4732",
     fetchWeather: function(city){
+        displayLoading();
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?q=" + city 
             + "&appid=" 
             + this.ApiKey
         )
             .then((response) => response.json())
-            .then((data) => this.displayWeather(data));
+            .then((data) => {
+                hideLoading();
+                this.displayWeather(data)
+            });
     },
     displayWeather: function(data){
         const { name } = data;
@@ -18,7 +23,6 @@ let weather = {
         const { temp, feels_like, humidity } = data.main;
         const { speed } = data.wind;
         const { country } = data.sys;
-        console.log(name, icon, description, temp, humidity, speed, country);
 
         let celsius = Math.round(temp - 273.15);
         let sensation = Math.round(feels_like - 273.15);
@@ -52,3 +56,11 @@ searchBar.addEventListener("keypress", function(e){
       searchBtn.click();
     }
   });
+
+  const displayLoading = () => {
+    loader.style.display = 'block';
+  }
+
+  const hideLoading = () => {
+    loader.style.display = 'none';
+  }

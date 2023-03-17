@@ -17,7 +17,7 @@ body{
 }
 
 .container {
-    background-color: rgba(21, 21, 21, 0.75);   
+    background-color: rgba(0, 0, 0, 0.75);   
     padding: 30px 15px;
     border-radius: 8%;
     color: rgb(255, 255, 255);
@@ -32,14 +32,14 @@ body{
 
 .search-bar{
     width: 70%;
-    padding:3px 5px; 
+    padding:7px 8px; 
     font-size:16px; 
     border-color:#cccccc; 
     border-style:solid; 
     border-radius:16px; 
-    border-width:0px;
-    background-color: rgba(0, 0, 0, 50%);
-    color: white;
+    border-width:1px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
 }
 
 .search-btn{
@@ -86,3 +86,29 @@ footer{
     margin-bottom: 15px;
     padding: 15px 0 10px 0;
 }
+
+.loader{
+    border: 4px solid rgba(0, 0, 0, .1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-left-color: rgb(50, 39, 206);
+    animation: spin 1s linear infinite;
+    position: absolute;
+    display: none;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .search-btn {
+      margin-top: 10px;
+    }
+  }
