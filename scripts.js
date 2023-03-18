@@ -15,7 +15,8 @@ let weather = {
             .then((data) => {
                 hideLoading();
                 this.displayWeather(data)
-            });
+            })
+            .catch(() => alert("Cannot found data for that city, please make sure to write the correct name."));
     },
     displayWeather: function(data){
         const { name } = data;
