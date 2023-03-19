@@ -98,6 +98,16 @@ footer{
     display: none;
 }
 
+.alert{
+    color: #fff;
+    font-size: 15px;
+    font-family: sans-serif;
+    text-align: left;
+    background-color: rgb(238, 24, 24);
+    padding: 8px;
+    border-radius: 10px;
+}
+
 @keyframes spin {
     0%{
         transform: rotate(0deg);

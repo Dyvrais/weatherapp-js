@@ -16,7 +16,7 @@ let weather = {
                 hideLoading();
                 this.displayWeather(data)
             })
-            .catch(() => alert("Cannot found data for that city, please make sure to write the correct name."));
+            .catch(() => alertQuery());
     },
     displayWeather: function(data){
         const { name } = data;
@@ -44,7 +44,7 @@ let weather = {
 
 searchBtn.addEventListener('click', function(){
     if (searchBar.value == ""){
-        alert('Please fill the text field before submiting');
+        alertField();
     } else {
         weather.search();
         searchBar.value = "";
@@ -64,4 +64,24 @@ searchBar.addEventListener("keypress", function(e){
 
   const hideLoading = () => {
     loader.style.display = 'none';
+  }
+
+  function alertField(){
+    const p = document.createElement('p');
+    p.innerHTML= "Please fill the field before submitting.";
+    p.className = `alert`
+    const div = document.querySelector('.search');
+    div.appendChild(p);
+
+    setTimeout(() => document.querySelector('.alert').remove(), 2000);
+  }
+
+  function alertQuery(){
+    const p = document.createElement('p');
+    p.innerHTML= "Couldn't find data for that city, please make sure to write the correct name.";
+    p.className = `alert`
+    const div = document.querySelector('.search');
+    div.appendChild(p);
+
+    setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
