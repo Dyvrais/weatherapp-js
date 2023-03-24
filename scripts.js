@@ -73,15 +73,15 @@ searchBar.addEventListener("keypress", function(e){
     const div = document.querySelector('.search');
     div.appendChild(p);
 
-    setTimeout(() => document.querySelector('.alert').remove(), 2000);
+    setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
 
   function alertQuery(){
     const p = document.createElement('p');
-    p.innerHTML= "Couldn't find data for that city, please make sure to write the correct name.";
+    p.innerHTML= "Couldn't find data for that location, please make sure to write the correct name.";
     p.className = `alert`
     const div = document.querySelector('.search');
     div.appendChild(p);
 
-    setTimeout(() => document.querySelector('.alert').remove(), 3000);
+    setTimeout(() => document.querySelector('.alert').remove(), 3500);
   }
