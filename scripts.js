@@ -8,7 +8,7 @@ let weather = {
         displayLoading();
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?q=" + city 
-            + "&appid=" 
+            + "&units=metric&appid=" 
             + this.ApiKey
         )
             .then((response) => response.json())
@@ -25,13 +25,11 @@ let weather = {
         const { speed } = data.wind;
         const { country } = data.sys;
 
-        let celsius = Math.round(temp - 273.15);
-        let sensation = Math.round(feels_like - 273.15);
         let desc = description.charAt(0).toUpperCase() + description.slice(1);
 
         document.querySelector('.city').innerHTML = "Weather in " + name + ", " + country;
-        document.querySelector('.temp').innerText = celsius + "°C";
-        document.querySelector('.feelslike').innerText = "Feels like: " + sensation + "°C";
+        document.querySelector('.temp').innerText = temp + "°C";
+        document.querySelector('.feelslike').innerText = "Feels like: " + feels_like + "°C";
         document.querySelector('.icon').src = "http://openweathermap.org/img/wn/" + icon + ".png";
         document.querySelector('.description').innerText = desc;
         document.querySelector('.humidity').innerText =  "Humidity: " + humidity + "%";
