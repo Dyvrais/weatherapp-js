@@ -17,6 +17,10 @@ body{
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.75);   
     padding: 30px 15px;
     border-radius: 8%;
@@ -27,11 +31,16 @@ body{
 }
 
 .search{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     text-align: center;
 }
 
 .search-bar{
-    width: 70%;
+    width: 100%;
     padding:7px 8px; 
     font-size:16px; 
     border-color:#cccccc; 
@@ -43,6 +52,10 @@ body{
 }
 
 .search-btn{
+    margin-left: 15px;
+}
+
+.btn{
     box-shadow:inset 0px 1px 3px 0px #91b8b3;
 	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
 	background-color:#768d87;
@@ -56,6 +69,11 @@ body{
 	padding:7px 17px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #2b665e;
+}
+
+.unit {
+    margin: 15px 15px 0px 15px;
+    align-self: center;
 }
 
 .flex{
@@ -102,7 +120,7 @@ footer p, footer a{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border-left-color: rgb(50, 39, 206);
+    border-left-color: rgb(60, 48, 230);
     animation: spin 1s linear infinite;
     position: absolute;
     display: none;
@@ -116,6 +134,8 @@ footer p, footer a{
     background-color: rgb(238, 24, 24);
     padding: 8px;
     border-radius: 10px;
+    margin-bottom: -10px;
+    width: 95%;
 }
 
 @keyframes spin {
@@ -127,11 +147,26 @@ footer p, footer a{
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .search-btn {
-      margin-top: 10px;
-    }
+@media only screen and (max-width: 1051px) {
     .container {
-        width: 55%;
+        width: 40%;
+    }
+  }
+
+@media only screen and (max-width: 770px) {
+    .container {
+        min-width: 190px;
+    }
+    
+    .search {
+        flex-direction: column;
+    }
+
+    .search-bar {
+        width: 80%;
+    }
+
+    .search-btn {
+        margin-top: 10px;
     }
   }

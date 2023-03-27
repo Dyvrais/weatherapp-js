@@ -2,13 +2,22 @@ let searchBar = document.querySelector(".search-bar");
 let searchBtn = document.querySelector(".search-btn");
 let loader = document.querySelector(".loader");
 
+let cityField = document.querySelector('.city');
+let tempField = document.querySelector('.temp');
+let feelsField = document.querySelector('.feelslike');
+let iconField = document.querySelector('.icon');
+let descField = document.querySelector('.description');
+let humidField = document.querySelector('.humidity');
+let windField =  document.querySelector('.wind');
+
 let weather = {
     "ApiKey": "b8f4fcd6996ec075a24ca2c7ad9d4732",
+    "units": "metric",
     fetchWeather: function(city){
         displayLoading();
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?q=" + city 
-            + "&units=metric&appid=" 
+            + "&units=" + this.units + "&appid=" 
             + this.ApiKey
         )
             .then((response) => response.json())
@@ -27,16 +36,16 @@ let weather = {
 
         let desc = description.charAt(0).toUpperCase() + description.slice(1);
 
-        document.querySelector('.city').innerHTML = "Weather in " + name + ", " + country;
-        document.querySelector('.temp').innerText = temp + "°C";
-        document.querySelector('.feelslike').innerText = "Feels like: " + feels_like + "°C";
-        document.querySelector('.icon').src = "http://openweathermap.org/img/wn/" + icon + ".png";
-        document.querySelector('.description').innerText = desc;
-        document.querySelector('.humidity').innerText =  "Humidity: " + humidity + "%";
-        document.querySelector('.wind').innerText = "Wind speed: " + speed + " km/h";
+        cityField.innerHTML = "Weather in " + name + ", " + country;
+        tempField.innerText = temp + (this.units === "metric" ? "°C" : "°F");
+        feelsField.innerText = "Feels like: " + feels_like + (this.units === "metric" ? "°C" : "°F");
+        iconField.src = "http://openweathermap.org/img/wn/" + icon + ".png";
+        descField.innerText = desc;
+        humidField.innerText =  "Humidity: " + humidity + "%";
+        windField.innerText = "Wind speed: " + speed + (this.units === "metric" ? "m/s" : "mph");
     },
     search: function(){
-        this.fetchWeather(document.querySelector(".search-bar").value);
+        this.fetchWeather(searchBar.value);
     }
 };
 
@@ -45,7 +54,16 @@ searchBtn.addEventListener('click', function(){
         alertField();
     } else {
         weather.search();
-        searchBar.value = "";
+    }
+});
+
+const toggleUnits = document.querySelector('.unit');
+toggleUnits.addEventListener('click', (e) => {
+    weather.units = weather.units === 'metric' ? 'imperial' : 'metric';
+    if (searchBar.value == ""){
+      e.preventDefault;
+    } else {
+      weather.fetchWeather(searchBar.value);
     }
 });
 
@@ -68,8 +86,8 @@ searchBar.addEventListener("keypress", function(e){
     const p = document.createElement('p');
     p.innerHTML= "Please fill the field before submitting.";
     p.className = `alert`
-    const div = document.querySelector('.search');
-    div.appendChild(p);
+    const div = document.querySelector('.container');
+    div.insertBefore(p, div.children[1]);
 
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
   }
@@ -78,8 +96,8 @@ searchBar.addEventListener("keypress", function(e){
     const p = document.createElement('p');
     p.innerHTML= "Couldn't find data for that location, please make sure to write the correct name.";
     p.className = `alert`
-    const div = document.querySelector('.search');
-    div.appendChild(p);
+    const div = document.querySelector('.container');
+    div.insertBefore(p, div.children[1]);
 
     setTimeout(() => document.querySelector('.alert').remove(), 3500);
   }
